@@ -1,0 +1,441 @@
+
+@font-face {
+    font-family: 'Lato-Black';
+    font-display:swap;src: url(./assets/fonts/Lato-Black.imgcache.rev190916201231.ttf) format('truetype')
+}
+
+@font-face {
+    font-family: 'Lato-BlackItalic';
+    font-display:swap;src: url(./assets/fonts/Lato-BlackItalic.imgcache.rev190916201231.ttf) format('truetype')
+}
+
+@font-face {
+    font-family: 'Lato-Bold';
+    font-display:swap;src: url(./assets/fonts/Lato-Bold.imgcache.rev190916201231.ttf) format('truetype')
+}
+
+@font-face {
+    font-family: 'Lato-Light';
+    font-display:swap;src: url(./assets/fonts/Lato-Light.imgcache.rev190916201231.ttf) format('truetype')
+}
+
+@font-face {
+    font-family: 'Lato-Regular';
+    font-display:swap;src: url(./assets/fonts/Lato-Regular.imgcache.rev190916201231.ttf) format('truetype')
+}
+
+/* font declaration */
+html{
+    font-size: 16px;
+}
+body{
+    display: block;
+    margin: 0;
+    /* font-family: ff-dagny-web-pro,Helvetica,Arial,sans-serif; */
+    font-family: Lato-Regular;
+    line-height: 1.15;
+    color: #0e1719;
+    background-color: #fff;
+    min-width: 320px;
+    overflow-x: hidden;
+}
+/*************************Header CSS Starts**************************/
+.adArea{
+    background-color: #ebebeb;
+    margin:0;
+    padding: 4em 0;
+}
+.header-container{
+    
+}
+.flex{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+.flex-align-top{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+}
+.aarpe-ui-header--shadow{
+    webkit-box-shadow: 1px 1.7px 4px 2px rgba(0,0,0,.14);
+    box-shadow: 1px 1.7px 4px 2px rgba(0,0,0,.14);
+}
+.aarpe-ui-header-Branding a{
+    color: #dc2a2a;
+    text-decoration: none;
+    margin-right: 10px;
+    display: inline-block;
+
+}
+.aarp-c-header__menu-icon-text{
+    font-size: .625em;
+    font-weight: 700;
+    font-style: normal;
+    font-stretch: normal;
+    margin-top: 0;
+    color: #dc2a2a;
+}
+.aarpe-ui-header-links ul, .aarpe-ui-header-rewards ul, .aarpe-ui-header-login ul{
+    list-style: none;
+    padding: 0;
+}
+.aarpe-ui-header-links ul li, .aarpe-ui-header-rewards ul :link, .aarpe-ui-header-login ul li{
+    display: inline-block;
+}
+.aarpe-ui-header-links ul li.community-link{
+    margin: 0 .65em 0 0;
+}
+.aarpe-ui-header-links ul li:last-child a{
+    padding: 0 0 0 .66667em;
+    border-left: 1px solid #ccc;
+}
+.community-link{
+    display: inline-block;
+}
+.header-btn{
+    
+    font-weight: 700;
+    text-align: center;
+    
+    border-left: 0;
+}
+.header-btn a{
+    padding: .7em 1.575em;
+    background-color: #dc2a2a;
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+}
+.header-btn a:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.header-link a{
+    color:#dc2a2a;
+    font-weight: 500;
+}
+.aarpe-ui-header-rewards.header-link a{
+    text-decoration: none;
+}
+.aarpe-ui-header-rewards.header-link a:hover{
+    text-decoration: underline;
+}
+.aarpe-ui-header-rewards{
+    padding-right: 20px;
+}
+.aarpe-ui-header-login.header-link ul li{
+    padding: 0 2px;
+}
+.aarpe-ui-header-login.header-link ul li:last-child a{
+    padding: 0 0 0 .66667em;
+    border-left: 1px solid #ccc;
+}
+.icon-menu {
+    position: absolute;
+    top: 5px;
+
+}
+.icon-badge{
+}
+.aarpe-ui-header-Branding a.AarpLogo img{
+    padding-top: 12px;
+}
+.aarpe-ui-header--color-theme{
+    background-color: #ffffff;
+    color: #dc2a2a;
+}
+.aarpe-ui-header-Branding{
+    flex-grow: 1;
+    position: relative;
+}
+.aarpe-ui-header-links{
+    flex-grow: 9;
+}
+.aarpe-ui-header-login{
+    flex-grow: 1;
+}
+.aarpe-ui-header-search{
+    flex-grow: 1;
+}
+.aarpe-home-search{
+    background-color: rgba(0,0,0,.08);
+    color: currentColor;
+    padding: 1.76747em 0 1.76747em 1.6em;
+}
+.sr-only{
+    display:none;
+}
+.aarpe-search-icon-wrapper{
+    position: relative;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+}
+.aarpe-search-icon{
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+}
+.aarpe-search-icon__circle{
+    width: .75em;
+    height: .75em;
+    border: 2.5px solid #dc2a2a;
+    border-radius: 10em;
+}
+.aarpe-search-icon__rectangle{
+    position: absolute;
+    left: .8em;
+    width: .6em;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    bottom: -.2em;
+    border: 2px solid #dc2a2a;
+    border-top-right-radius: .6em;
+    border-bottom-right-radius: .6em;
+}
+                            
+
+/*************************Header CSS Ends**************************/
+
+/*************************Footer CSS Starts**************************/
+.aarp-c-footer__quick-links-list .aarp-c-footer__quick-links-link:focus,.aarp-c-linked-dropdown__link-list-normal .aarp-c-linked-dropdown__link-list-link:focus,.aarp-c-linked-dropdown__link-list-normal .aarp-c-linked-dropdown__main-link:focus {
+    outline: 2px dotted #dc2a2a;
+    color: inherit
+}
+.aarp-c-footer{
+    font-size: 1rem;
+    overflow: hidden;
+}
+.aarp-c-footer--grey-theme.aarp-c-footer{
+    font-family: Lato-Regular;
+}
+.footer-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.contentSection{
+    margin: 0 auto;
+    width: 1170px;
+}
+.logoBox{
+    display: inline-block;
+    width: 40%;
+}
+
+/* css from Aarp portal */
+
+.aarp-c-footer--grey-theme .aarp-c-footer__links {
+    background-color: #f4f4f4;
+    color: #333;
+    font-size: 1em;
+    font-weight: 700;
+}
+.aarp-c-footer__links.aarp-o-container {
+    width: 100%;
+    padding: 2.5em 1.8125em;
+}
+
+.aarp-c-footer__links-body {
+    max-width: 75em;
+    margin: auto;
+}
+.aarp-c-footer__grid {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between
+}
+.aarp-c-footer__grid-item{
+    -webkit-box-flex: 1;
+    flex: 1;
+    width: 0
+}
+.navigationLinks{}
+.aarp-c-linked-dropdown__link-list-normal{
+    font-family: Lato-Regular;
+    padding: 1.25em 1.25em 1.25em 0;
+}
+.aarp-c-linked-dropdown__link-list-normal-heading{
+    font-size: .9375em;
+    font-family: Lato-Bold;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 .625em 0;
+}
+.aarp-c-linked-dropdown__link-list-normal-list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.aarp-c-linked-dropdown__link-list-normal-item{
+    font-size: .9375em;
+    line-height: 1;
+    margin-bottom: .625em;
+}
+.aarp-c-linked-dropdown__link-list-link{
+    text-decoration: none;
+    color: inherit;
+    font-weight: 400;
+}
+.aarp-c-linked-dropdown__link-list-link:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.aarp-c-footer--grey-theme .aarp-c-footer__boilerplate {
+    text-align: left;
+    background-color: #494949;
+    color: #fff;
+}
+.aarp-c-footer__boilerplate {
+    padding-top: 1.875em;
+    padding-bottom: 1.875em;
+    line-height: 1;
+}
+.aarp-o-container {
+    width: 100%;
+    padding-left: 1.8125em;
+    padding-right: 1.8125em;
+    box-sizing: border-box;
+}
+.aarp-c-footer__boilerplate ul {
+    display: inline-block;
+    font-size: .9375em;
+    padding: 0;
+    margin: 0;
+}
+.aarp-c-footer__boilerplate li:first-child {
+    padding-left: 0;
+}
+.aarp-c-footer__boilerplate li {
+    display: inline-block;
+    padding: 0 .9375em;
+    border-right: 1px solid;
+    width: auto;
+    vertical-align: top;
+}
+.aarp-c-footer__boilerplate li:last-child {
+    border-right: none;
+}
+.aarp-c-footer--grey-theme .aarp-c-footer__boilerplate a{
+    text-decoration: none;
+    color: inherit;
+}
+.aarp-c-footer--grey-theme .aarp-c-footer__boilerplate a:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.aarp-c-footer--grey-theme .aarp-c-footer__quick-links {
+    background-color: #494949;
+    color: #fff;
+}
+.aarp-c-footer__quick-links {
+    padding-top: 1.25em;
+    padding-bottom: 2.8125em;
+}
+.aarp-c-footer__quick-links-about{
+    width: 33.3333%;
+    display: block;
+    padding-right: 5em;
+    float: left;
+    box-sizing: border-box;
+}
+.aarp-c-footer__logo{
+    padding: 1.875em 0;
+}
+.aarp-c-footer__logo-img{
+    width: 7.5em;
+    height: 1.875em;
+}
+img {
+    border-style: none;
+}
+.clearfix{
+    clear: both;
+}
+.aarp-c-footer__descr{
+    color: #ccc;
+}
+.aarp-c-footer__quick-links-rows{
+    font-size: .9375em;
+    font-family: Lato-Bold;
+    line-height: 2.2;
+    margin-top: 1.25em;
+    box-sizing: border-box;
+    width: 66.6667%;
+}
+.aarp-c-footer__quick-links-list{
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 24.7%;
+}
+ /* .aarp-c-footer__quick-links-list ul {
+    margin: 0;
+    padding: 0;
+} */
+.quickLink{}
+.aarp-c-footer__quick-links-item{
+    text-overflow: ellipsis;
+    overflow: initial;
+    white-space: nowrap;
+    padding-right: .625em;
+}
+.aarp-c-footer__quick-links-link{
+    font-weight: 400;
+    text-decoration: none;
+    color: inherit;
+    white-space: nowrap;
+}
+.footerQuickLink{} 
+
+
+
+
+
+/*************************Footer CSS Ends**************************/
+
+
+/*************************Media Query Starts**************************/
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  
+    .aarpe-search-icon__circle {
+        position: absolute;
+        top: -10px;
+        left: -22px;
+    }
+    .aarpe-search-icon__rectangle {
+    left: -13px;
+    bottom: -10px;
+    }
+}
+  /* 
+    ##Device = Tablets, Ipads (landscape)
+    ##Screen = B/w 768px to 1024px
+  */
+  
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .aarpe-search-icon__circle {
+        position: absolute;
+        top: -10px;
+        left: -22px;
+    }
+    .aarpe-search-icon__rectangle {
+    left: -10px;
+    bottom: -10px;
+    }
+
+    
+  }
+/*************************Media Query Ends**************************/
+
