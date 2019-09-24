@@ -75,10 +75,11 @@ body{
     color: #dc2a2a;
     text-decoration: none;
     margin-right: 10px;
+    line-height: 1.5;
     display: inline-block;
 
 }
-.aarpe-ui-header-Branding a .AarpLogo{
+.aarpe-ui-header-Branding a.AarpLogo{
     margin-top: -5px; 
 }
 .aarp-c-header__menu-icon-text{
