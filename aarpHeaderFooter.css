@@ -170,6 +170,7 @@ body{
 .aarpe-ui-header--color-theme{
     background-color: #ffffff;
     color: #dc2a2a;
+    font-size: 16px;
 }
 .aarpe-ui-header-Branding{
     flex-grow: 1;
@@ -204,14 +205,14 @@ body{
     text-align: center;
 }
 .aarpe-search-icon__circle{
-    width: .75rem;
-    height: .75rem;
+    width: 1rem;
+    height: 1rem;
     border: 2.5px solid #dc2a2a;
     border-radius: 10rem;
 }
 .aarpe-search-icon__rectangle{
     position: absolute;
-    left: .5rem;
+    left: .7rem;
     width: .6rem;
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
