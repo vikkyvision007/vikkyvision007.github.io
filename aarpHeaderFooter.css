@@ -78,6 +78,9 @@ body{
     display: inline-block;
 
 }
+.aarpe-ui-header-Branding a AarpLogo{
+    margin-top: -5px; 
+}
 .aarp-c-header__menu-icon-text{
     font-size: .625em;
     font-weight: 700;
