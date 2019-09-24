@@ -204,21 +204,21 @@ body{
     text-align: center;
 }
 .aarpe-search-icon__circle{
-    width: .75em;
-    height: .75em;
+    width: .75rem;
+    height: .75rem;
     border: 2.5px solid #dc2a2a;
-    border-radius: 10em;
+    border-radius: 10rem;
 }
 .aarpe-search-icon__rectangle{
     position: absolute;
-    left: .8em;
-    width: .6em;
+    left: .5rem;
+    width: .6rem;
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
-    bottom: -.2em;
+    bottom: -.1rem;
     border: 2px solid #dc2a2a;
-    border-top-right-radius: .6em;
-    border-bottom-right-radius: .6em;
+    border-top-right-radius: .6rem;
+    border-bottom-right-radius: .6rem;
 }
                             
 
