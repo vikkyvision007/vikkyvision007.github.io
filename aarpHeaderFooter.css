@@ -188,7 +188,7 @@ body{
 .aarpe-home-search{
     background-color: rgba(0,0,0,.08);
     color: currentColor;
-    padding: 1.76747em 1.2em 1.7em 1.76747em;
+    padding: 1.76747em .65em 1.76747em 1.2em;
 }
 .sr-only{
     display:none;
