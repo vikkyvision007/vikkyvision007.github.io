@@ -250,8 +250,8 @@ body{
 }
 
 .aarp-c-footer__links-body {
-    max-width: 87.6em;
-    margin: auto;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 .aarp-c-footer__grid {
     display: -webkit-box;
@@ -448,23 +448,27 @@ img {
   }
   /***************Saleseforce mediaquery******************/
 
-    @media only screen and (min-width: 1200px){
-        .aarp-c-footer__links-body{
-            width: 1170px !important;
-        }
-    }
     
-    @media only screen and (min-width: 992px){
-        .aarp-c-footer__links-body{
-            width: 970px !important;
-        }
-    }
-    
-    @media only screen and (min-width: 768px){
-        .aarp-c-footer__links-body{
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+.aarp-c-footer__links-body{
             width: 750px !important;
         }
-    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+.aarp-c-footer__links-body{
+            width: 970px !important;
+        }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+.aarp-c-footer__links-body{
+            width: 1170px !important;
+        }
+}
     
 /*************************Media Query Ends**************************/
 
