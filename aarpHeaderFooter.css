@@ -97,7 +97,7 @@ body{
 .aarpe-ui-header-links ul li, .aarpe-ui-header-rewards ul :link, .aarpe-ui-header-login ul li{
     display: inline-block;
 }
-.aarp-c-header__r4g-section__link{
+.header-link a.aarp-c-header__r4g-section__link{
     color: #dc2a2a;
     font-weight: 700;
     text-decoration: none;
