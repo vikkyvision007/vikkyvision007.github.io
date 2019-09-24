@@ -124,10 +124,14 @@ body{
 .header-btn a:hover{
     text-decoration: underline;
     cursor: pointer;
+    color: #ffffff;
 }
 .header-link a{
     color:#dc2a2a;
     font-weight: 500;
+}
+.header-link a:hover{
+    color:#ffffff;
 }
 .aarpe-ui-header-rewards.header-link a{
     text-decoration: none;
@@ -290,6 +294,10 @@ body{
     line-height: 1;
     margin-bottom: .625em;
 }
+.aarp-c-linked-dropdown__link-list-normal-item a:hover{
+    color:#0e1719;
+    text-decoration: underline;
+}
 .aarp-c-linked-dropdown__link-list-link{
     text-decoration: none;
     color: inherit;
@@ -398,6 +406,10 @@ img {
     overflow: initial;
     white-space: nowrap;
     padding-right: .625em;
+}
+.aarp-c-footer__quick-links-item a:hover{
+    color: #ffffff;
+    text-decoration: underline;
 }
 .aarp-c-footer__quick-links-link{
     font-weight: 400;
