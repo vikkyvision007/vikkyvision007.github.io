@@ -27,47 +27,50 @@ AARP.Everywhere = AARP.Everywhere || {};
 
 }(AARP.Everywhere));
 
-// gets all the cookies available on the page and puts them in an object, eg:[at: {...}, dr: {..}]
-/* const AARP = AARP || {};
-AARP.cookies = document.cookie
-  .split(';')
-  .filter(a => /^\sat=|^\sdr=|^\sfedid=/.test(a))
-  .reduce((a, b) => {
-    const o = b.replace(/\s/, '').split('=');
-    const obj = {
-      [o[0]]: decodeURIComponent(o[1])
-        .split(/\&/)
-        .reduce((a, b) => {
-          // is this another set of key value pairs?
-          if (~b.indexOf('=')) {
-            const o = b.split('=');
-            const obj = {[o[0]]: o[1]};
-            return Object.assign(obj, a);
-          } else {
-            // Assume that it's not a set of key value pairs; Just a value.
-            return b;
-          }
-        }, {})
-    };
-    return Object.assign(obj, a);
-  }, {}); */
 
 // gets all the cookies available on the page and puts them in an object, eg:[at: {...}, dr: {..}]
 // const AARP = AARP || {};
-AARP.cookies = document.cookie
-const b = "u%3D5525775%26a%3DMadridH465735%26e%3Dnotarwillieway1%40aarp.org%26f%3DBadridia%26t%3D1569417003%26p%3D20878%26mj%3D04%2F03%2F2019%26mat%3D3%26ms%3D0%26mc%3D0%26me%3D04%2F30%2F2022%26ftr%3D0%26us%3DMaryland%26mar%3DN%26uf%3D%5B%5D%26n%3D%5B11724%2C51655%2C56007%2C56035%5D%26cid%3D5482631868%26ur%3DJvAUVT1%252FQfM0TQdhzqD6py90XZB91dSiVAKDWUgww7qmb9nesqTfT1aOodm%252B8zU3vJfxUW3Vmoq0XjsbFB%252F0DbBfVzWPnzluuUgN4BOntF2COMR4UMAYoeHHyjpexNjh1N%252FpgmvI2yKYled5zpUYw1gZiHFLP5dgv646v3zq7XEw%252FNSsfPPtFE3iEOr%252BfXLB5kL33cHgbLEKHtX8i3lW6yCNRFKRcuUmbSWuJ%252B4Twy0zWj010RtRHJBMKgu%252FO%252FBeYQUhz0LiToETaXHdh5yXpNLPyMMNRcqdld2eyOk55WT77oxP1zVvtttbnH%252Fwjw1EyCJCaq6Zbfwu6S3HR1TlKw%253D%253D%26li%3D44794%26h%3De0c57bacf1d8526a4a3ecbcd755fdb19%26msa%3D47900%26lu%3DTltzDKfteevMrvNanLJKRCfOkkGWxuY4vacJp3d5iUU."
-window.decodeURIComponent(b).split(/\&/)
-    .reduce((a, b) => {
-        // is this another set of key value pairs?
-        if (~b.indexOf('=')) {
-            const o = b.split('=');
-            const obj = { [o[0]]: o[1] };
+document.cookies = "at=u%3D97406043%26a%3DGaleo9%26e%3Dte.sta.a.r.p.21.0%40gmail.com%26f%3DGaleio%26t%3D1569267529%26p%3D20171%26mj%3D05%2F16%2F2019%26mat%3D5%26ms%3D0%26mc%3D0%26me%3D05%2F31%2F2024%26ftr%3D0%26us%3DVirginia%26mar%3DN%26uf%3D%5BCTG%5D%26n%3D%5B11724%2C51655%2C58025%2C55599%2C56035%5D%26cid%3D5497434910%26ur%3DaXIio15svTmWzWKuT551vcQZoTZUaKkv9G%252BdKyR8vdn2QPok8f8QEtmlnOprNuPSzVY%252FG0ivpzRFWjTe2XwQ6ZA9ZrBRj%252BjpJhcEkPl%252FqwQdH%252F%252Ff5jFFV8t%252F4Qw%252F3Sx7tHuFgl%252BlKePbr8K2h%252Fzar1qRZ7ZgiQfrh4dPlhQLKQlTxElVfmoZDIa4dEQNFyySxU8XdshvrQEoV68scymtXZj3I%252F6VJf85%252FB%252ByyQ182F8xc8Qzyx3cbtrVuUCTHj4JNeINtFCvSIwkeUsCu3k3V7%252FfUBvVy9A0MmLqrI8rHMa1xJfHCtKEBL5zEdpieHf9%252FhOfbzktzSI8cxncksOjog%253D%253D%26li%3D20826091%26h%3D8cb21a738838d9e86ee91da9aeb2c0bf%26msa%3D47900%26lu%3D3olKpboObYzzgxU_gYCCRjFbqehDZrSxS-QtHl5vXS4.; domain=.aarp.org; path=/; expires=2019-11-22T19:38:49.037Z";
+(function () {
+    /* AARP.cookies = document.cookies
+    .split(';')
+        .filter(a => /^\sat=|^\sdr=|^\sfedid=/.test(a))
+        .reduce((a, b) => {
+            const o = b.replace(/\s/, '').split('=');
+            const obj = {
+                [o[0]]: decodeURIComponent(o[1])
+                    .split(/\&/)
+                    .reduce((a, b) => {
+                        // is this another set of key value pairs?
+                        if (~b.indexOf('=')) {
+                            const o = b.split('=');
+                            const obj = { [o[0]]: o[1] };
+                            return Object.assign(obj, a);
+                        } else {
+                            // Assume that it's not a set of key value pairs; Just a value.
+                            return b;
+                        }
+                    }, {})
+            };
             return Object.assign(obj, a);
-        } else {
-            // Assume that it's not a set of key value pairs; Just a value.
-            return b;
-        }
-    }, {})
+        }, {}); */
+
+    AARP.cookies = document.cookies;
+    window.decodeURIComponent(AARP.cookies)
+        .split(/\&/)
+        .reduce((a, b) => {
+            // is this another set of key value pairs?
+            if (~b.indexOf('=')) {
+                const o = b.split('=');
+                const obj = { [o[0]]: o[1] };
+                AARP.Everywhere.at = a;
+                return Object.assign(obj, a);
+            } else {
+                // Assume that it's not a set of key value pairs; Just a value.
+                return b;
+            }
+        }, {})
+})();
 
 (function () {
     var a = function a() {
@@ -329,3 +332,4 @@ document.addEventListener("DOMContentLoaded", function () {
         a()
     }, "load-sticky-header-js", true)
 });
+
