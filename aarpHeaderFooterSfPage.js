@@ -524,8 +524,8 @@ AARP.allUserStates = {
 
 // Determining Userstate using cookies value
 var findUserState = function () {
-    // var val = AARP.cookies.at.ms;
-    var val = '0';
+    var val = AARP.cookies.at.ms;
+    //var val = '0';
     AARP.userState.userFirstname = AARP.cookies.at.f;
     var obj = {};
     switch (val) {
