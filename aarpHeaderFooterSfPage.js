@@ -2,6 +2,8 @@
 // For updating the domain name as per the url to all links included,  
 let AARP = {};
 AARP.Everywhere = AARP.Everywhere || {};
+AARP.cookies = AARP.cookies || {};
+AARP.userState = {};
 (function (aarp) {
     aarp.getEnvironment = function () {
 
@@ -29,8 +31,7 @@ AARP.Everywhere = AARP.Everywhere || {};
 
 
 // gets all the cookies available on the page and puts them in an object, eg:[at: {...}, dr: {..}]
-// const AARP = AARP || {};
-document.cookies = "at=u%3D97406043%26a%3DGaleo9%26e%3Dte.sta.a.r.p.21.0%40gmail.com%26f%3DGaleio%26t%3D1569267529%26p%3D20171%26mj%3D05%2F16%2F2019%26mat%3D5%26ms%3D0%26mc%3D0%26me%3D05%2F31%2F2024%26ftr%3D0%26us%3DVirginia%26mar%3DN%26uf%3D%5BCTG%5D%26n%3D%5B11724%2C51655%2C58025%2C55599%2C56035%5D%26cid%3D5497434910%26ur%3DaXIio15svTmWzWKuT551vcQZoTZUaKkv9G%252BdKyR8vdn2QPok8f8QEtmlnOprNuPSzVY%252FG0ivpzRFWjTe2XwQ6ZA9ZrBRj%252BjpJhcEkPl%252FqwQdH%252F%252Ff5jFFV8t%252F4Qw%252F3Sx7tHuFgl%252BlKePbr8K2h%252Fzar1qRZ7ZgiQfrh4dPlhQLKQlTxElVfmoZDIa4dEQNFyySxU8XdshvrQEoV68scymtXZj3I%252F6VJf85%252FB%252ByyQ182F8xc8Qzyx3cbtrVuUCTHj4JNeINtFCvSIwkeUsCu3k3V7%252FfUBvVy9A0MmLqrI8rHMa1xJfHCtKEBL5zEdpieHf9%252FhOfbzktzSI8cxncksOjog%253D%253D%26li%3D20826091%26h%3D8cb21a738838d9e86ee91da9aeb2c0bf%26msa%3D47900%26lu%3D3olKpboObYzzgxU_gYCCRjFbqehDZrSxS-QtHl5vXS4.; domain=.cs62.force.com; path=/; expires=2019-11-22T19:38:49.037Z";
+document.cookies = "at=u%3D97406043%26a%3DGaleo9%26e%3Dte.sta.a.r.p.21.0%40gmail.com%26f%3DGaleio%26t%3D1569267529%26p%3D20171%26mj%3D05%2F16%2F2019%26mat%3D5%26ms%3D0%26mc%3D0%26me%3D05%2F31%2F2024%26ftr%3D0%26us%3DVirginia%26mar%3DN%26uf%3D%5BCTG%5D%26n%3D%5B11724%2C51655%2C58025%2C55599%2C56035%5D%26cid%3D5497434910%26ur%3DaXIio15svTmWzWKuT551vcQZoTZUaKkv9G%252BdKyR8vdn2QPok8f8QEtmlnOprNuPSzVY%252FG0ivpzRFWjTe2XwQ6ZA9ZrBRj%252BjpJhcEkPl%252FqwQdH%252F%252Ff5jFFV8t%252F4Qw%252F3Sx7tHuFgl%252BlKePbr8K2h%252Fzar1qRZ7ZgiQfrh4dPlhQLKQlTxElVfmoZDIa4dEQNFyySxU8XdshvrQEoV68scymtXZj3I%252F6VJf85%252FB%252ByyQ182F8xc8Qzyx3cbtrVuUCTHj4JNeINtFCvSIwkeUsCu3k3V7%252FfUBvVy9A0MmLqrI8rHMa1xJfHCtKEBL5zEdpieHf9%252FhOfbzktzSI8cxncksOjog%253D%253D%26li%3D20826091%26h%3D8cb21a738838d9e86ee91da9aeb2c0bf%26msa%3D47900%26lu%3D3olKpboObYzzgxU_gYCCRjFbqehDZrSxS-QtHl5vXS4.; domain=.aarp.org; path=/; expires=2019-11-22T19:38:49.037Z";
 (function () {
     /* AARP.cookies = document.cookies
     .split(';')
@@ -54,16 +55,15 @@ document.cookies = "at=u%3D97406043%26a%3DGaleo9%26e%3Dte.sta.a.r.p.21.0%40gmail
             };
             return Object.assign(obj, a);
         }, {}); */
-
-    AARP.cookies = document.cookies;
-    window.decodeURIComponent(AARP.cookies)
+    AARP.cookie = document.cookies;
+    window.decodeURIComponent(AARP.cookie)
         .split(/\&/)
         .reduce((a, b) => {
             // is this another set of key value pairs?
             if (~b.indexOf('=')) {
                 const o = b.split('=');
                 const obj = { [o[0]]: o[1] };
-                AARP.Everywhere.at = a;
+                AARP.cookies.at = a;
                 return Object.assign(obj, a);
             } else {
                 // Assume that it's not a set of key value pairs; Just a value.
@@ -72,6 +72,7 @@ document.cookies = "at=u%3D97406043%26a%3DGaleo9%26e%3Dte.sta.a.r.p.21.0%40gmail
         }, {})
 })();
 
+//Search functionality below
 (function () {
     var a = function a() {
         if (document.querySelector(".aarp-o-body")) {
@@ -144,7 +145,6 @@ document.cookies = "at=u%3D97406043%26a%3DGaleo9%26e%3Dte.sta.a.r.p.21.0%40gmail
     window.addEventListener("load", a)
 })();
 
-// var AARP = AARP || {};
 AARP.addStateParam = function (a) {
     var e = a.href.split("?")[1];
     var d = false;
@@ -226,6 +226,7 @@ document.addEventListener("DOMContentLoaded", function () {
     AARP.Everywhere.LeavingModal.addAnchors()
 });
 
+// Menu navigation code below
 function openNav(d) {
     d && d.preventDefault();
     var b = document.getElementById("aarp-c-offscreen-nav-id");
@@ -291,6 +292,8 @@ document.addEventListener("DOMContentLoaded", function () {
             })
         }
     };
+
+    //Sticky header code below
     var c = function c() {
         if (true) {
             var e = false;
@@ -333,3 +336,304 @@ document.addEventListener("DOMContentLoaded", function () {
     }, "load-sticky-header-js", true)
 });
 
+//User state object for All States
+
+AARP.allUserStates = {
+    anonymous: {
+        __comment: 'ANONYMOUS STATE',
+        buttonHeader: {
+            Join: 'https://join.aarp.org/joinnav/',
+            Renew: 'https://join.aarp.org/rfrenew'
+        },
+        flyOutNav: {
+            Join: 'https://join.aarp.org/joinnav/',
+            Renew: 'https://join.aarp.org/rfrenew'
+        },
+        Link: {
+            Help: 'https://www.aarp.org/help/',
+            'Member Benefits': 'https://www.aarp.org/benefits-discounts/'
+        },
+        leftRightLink: {
+            Register: 'https://secure.aarp.org/applications/user/register?response_type=code&client_id=0oa3rtsa6ahTQReOG2p7&redirect_uri=https%3A//www.aarp.org/aarp/auth/callback&scope=bui+bmi',
+            Login: 'https://secure.aarp.org/applications/user/login?response_type=code&client_id=0oa3rtsa6ahTQReOG2p7&redirect_uri=https%3A//www.aarp.org/aarp/auth/callback&scope=bui+bmi'
+        },
+        rightLeftDropDown: {
+            'My Account': 'https://secure.aarp.org/applications/acct/myAccount.action?request_locale=en&amp;intcmp=GLOBAL-HDR-LNK-CLK-MYACC',
+            Community: 'https://community.aarp.org'
+        }
+    },
+    'non-member': {
+        __comment: 'NON-MEMBER STATE / Registered non-member',
+        buttonHeader: {
+            Join: 'https://join.aarp.org/joinnav/',
+            Volunteer: 'https://www.aarp.org/giving-back/'
+        },
+        flyOutNav: {
+            Join: 'https://join.aarp.org/joinnav/',
+            Volunteer: 'https://www.aarp.org/giving-back/'
+        },
+        Link: {
+            Help: 'https://www.aarp.org/help/',
+            'Member Benefits': 'https://www.aarp.org/benefits-discounts/'
+        },
+        leftRightLink: {
+            'Hi, %{firstName}%': ''
+        },
+        rightLeftDropDown: {
+            Join: 'https://join.aarp.org/joinnav/',
+            'My Account': 'https://secure.aarp.org/applications/acct/myAccount.action?request_locale=en&amp;intcmp=GLOBAL-HDR-LNK-CLK-MYACC',
+            Community: 'https://community.aarp.org',
+            Newsletters: 'https://secure.aarp.org/applications/acct/editNewsletters.action?request_locale=en&intcmp=GLOBAL-HDR-LNK-CLK-NEWSLETTER',
+            'Staying Sharp': 'https://stayingsharp.aarp.org/',
+            Logout: 'https://secure.aarp.org/applications/user/logout/logout'
+        }
+    },
+    'member-on-automatic-renew': {
+        __comment: 'MEMBER AUTO RENEW',
+        buttonHeader: {
+            Donate: 'https://foundation.aarp.org/site/Donation2?df_id=15985&mfc_pref=T&15985.donation=form1',
+            Volunteer: 'https://www.aarp.org/giving-back/'
+        },
+        flyOutNav: {
+            Donate: 'https://foundation.aarp.org/site/Donation2?df_id=15985&mfc_pref=T&15985.donation=form1',
+            Volunteer: 'https://www.aarp.org/giving-back/'
+        },
+        Link: {
+            Help: 'https://www.aarp.org/help/',
+            'Member Benefits': 'https://www.aarp.org/benefits-discounts/'
+        },
+        leftRightLink: {
+            'Hi, %{firstName}%': ''
+        },
+        rightLeftDropDown: {
+            'My Account': 'https://secure.aarp.org/applications/acct/myAccount.action?request_locale=en&amp;intcmp=GLOBAL-HDR-LNK-MYACC',
+            Donate: 'https://foundation.aarp.org/site/Donation2?df_id=15985&mfc_pref=T&15985.donation=form1',
+            Volunteer: 'https://www.aarp.org/giving-back/',
+            Community: 'https://community.aarp.org',
+            Newsletters: 'https://secure.aarp.org/applications/acct/editNewsletters.action?request_locale=en&intcmp=GLOBAL-HDR-LNK-CLK-NEWSLETTER',
+            'Staying Sharp': 'https://stayingsharp.aarp.org/',
+            Logout: 'https://secure.aarp.org/applications/user/logout/logout'
+        }
+    },
+    'member-not-on-automatic-renew': {
+        __comment: 'MEMBER NOT AUTO RENEW',
+        buttonHeader: {
+            Donate: 'https://foundation.aarp.org/site/Donation2?df_id=15985&mfc_pref=T&15985.donation=form1',
+            Volunteer: 'https://www.aarp.org/giving-back/'
+        },
+        flyOutNav: {
+            Donate: 'https://foundation.aarp.org/site/Donation2?df_id=15985&mfc_pref=T&15985.donation=form1',
+            Volunteer: 'https://www.aarp.org/giving-back/'
+        },
+        Link: {
+            Help: 'https://www.aarp.org/help/',
+            'Member Benefits': 'https://www.aarp.org/benefits-discounts/'
+        },
+        leftRightLink: {
+            'Hi, %{firstName}%': ''
+        },
+        rightLeftDropDown: {
+            Renew: 'https://join.aarp.org/rfrenew',
+            'My Account': 'https://secure.aarp.org/applications/acct/myAccount.action?request_locale=en&amp;intcmp=GLOBAL-HDR-LNK-MYACC',
+            Donate: 'https://foundation.aarp.org/site/Donation2?df_id=15985&mfc_pref=T&15985.donation=form1',
+            Volunteer: 'http://www.aarp.org/giving-back/',
+            Community: 'https://community.aarp.org',
+            Newsletters: 'https://secure.aarp.org/applications/acct/editNewsletters.action?request_locale=en&intcmp=GLOBAL-HDR-LNK-CLK-NEWSLETTER',
+            'Staying Sharp': 'https://stayingsharp.aarp.org/',
+            Logout: 'https://secure.aarp.org/applications/user/logout/logout'
+        }
+    },
+    'expiring-member': {
+        __comment: 'EXPIRING WITH 30 DAYS  (CAN ONLY TEST IN STAGE NO USER ACCOUNT TO LOG IN WITH IN PRODUCTION)',
+        buttonHeader: {
+            Renew: 'https://join.aarp.org/rfrenew',
+            Volunteer: 'https://www.aarp.org/giving-back/'
+        },
+        flyOutNav: {
+            Renew: 'https://join.aarp.org/rfrenew',
+            Volunteer: 'https://www.aarp.org/giving-back/'
+        },
+        Link: {
+            Help: 'https://www.aarp.org/help/',
+            'Member Benefits': 'https://www.aarp.org/benefits-discounts/'
+        },
+        leftRightLink: {
+            'Hi, %{firstName}%': ''
+        },
+        rightLeftDropDown: {
+            Renew: 'https://join.aarp.org/rfrenew',
+            'My Account': 'https://secure.aarp.org/applications/acct/myAccount.action?request_locale=en&amp;intcmp=GLOBAL-HDR-LNK-MYACC',
+            Volunteer: 'http://www.aarp.org/giving-back/',
+            Community: 'https://community.aarp.org',
+            Newsletters: 'https://secure.aarp.org/applications/acct/editNewsletters.action?request_locale=en&intcmp=GLOBAL-HDR-LNK-CLK-NEWSLETTER',
+            'Staying Sharp': 'https://stayingsharp.aarp.org/',
+            Logout: 'https://secure.aarp.org/applications/user/logout/logout'
+        }
+    },
+    'lapsed-or-expired-member': {
+        __comment: 'Lapsed/Expired (same as canceled)',
+        buttonHeader: {
+            Join: 'https://join.aarp.org/joinnav/',
+            Renew: 'https://join.aarp.org/rfrenew'
+        },
+        flyOutNav: {
+            Join: 'https://join.aarp.org/joinnav/',
+            Renew: 'https://join.aarp.org/rfrenew'
+        },
+        Link: {
+            Help: 'https://www.aarp.org/help/',
+            'Member Benefits': 'https://www.aarp.org/benefits-discounts/'
+        },
+        leftRightLink: {
+            'Hi, %{firstName}%': ''
+        },
+        rightLeftDropDown: {
+            Join: 'https://join.aarp.org/joinnav/',
+            Renew: 'https://join.aarp.org/rfrenew',
+            'My Account': 'https://secure.aarp.org/applications/acct/myAccount.action?request_locale=en&amp;intcmp=GLOBAL-HDR-LNK-MYACC',
+            Community: 'https://community.aarp.org',
+            Logout: 'https://secure.aarp.org/applications/user/logout/logout'
+        }
+    },
+    'cancelled-member': {
+        __comment: 'Canceled',
+        buttonHeader: {
+            Join: 'https://join.aarp.org/joinnav/',
+            Renew: 'https://join.aarp.org/rfrenew'
+        },
+        flyOutNav: {
+            Join: 'https://join.aarp.org/joinnav/',
+            Renew: 'https://join.aarp.org/rfrenew'
+        },
+        Link: {
+            Help: 'https://www.aarp.org/help/',
+            'Member Benefits': 'https://www.aarp.org/benefits-discounts/'
+        },
+        leftRightLink: {
+            'Hi, %{firstName}%': ''
+        },
+        rightLeftDropDown: {
+            Join: 'https://join.aarp.org/joinnav/',
+            Renew: 'https://join.aarp.org/rfrenew',
+            'My Account': 'https://secure.aarp.org/applications/acct/myAccount.action?request_locale=en&amp;intcmp=GLOBAL-HDR-LNK-MYACC',
+            Community: 'https://community.aarp.org',
+            Logout: 'https://secure.aarp.org/applications/user/logout/logout'
+        }
+    }
+}
+
+// Determining Userstate using cookies value
+var findUserState = function () {
+    // var val = AARP.cookies.at.ms;
+    var val = '0';
+    AARP.userState.userFirstname = AARP.cookies.at.f;
+    var obj = {};
+    switch (val) {
+        case '1':
+            obj.userType = 'non-member';
+            break;
+        case '5':
+            obj.userType = 'lapsed-or-expired-member';
+            break;
+        case '0':
+            obj.userType = AARP.cookies.at.mar == 'Y' ? 'member-on-automatic-renew' : 'member-not-on-automatic-renew';
+            break;
+        case '4':
+            obj.userType = 'cancelled-member';
+            break;
+        default:
+            obj.userType = 'anonymous';
+    }
+    if (obj.userType == 'member-on-automatic-renew' || obj.userType == 'member-not-on-automatic-renew') {
+        var thirtyDaysOutDate = new Date();
+        thirtyDaysOutDate.setDate(thirtyDaysOutDate.getDate() + 30);
+        var expirationDate = new Date(AARP.cookies.at.me);
+        if (thirtyDaysOutDate > expirationDate) {
+            obj.userType = 'expiring-member';
+        }
+    }
+    AARP.userState.userType = obj.userType;
+}
+
+//Function to set userstate in the header and accordingly changing values/links 
+var setUserState = function (userStates, memberState) {
+    let stateObj = userStates[memberState];
+    let buttonHeaderElm = "";
+    let flyOutNavElm = "";
+    let linkElm = "";
+    let leftLinkElm = "";
+    let rightLinkElm = "";
+    let leftDropDownElm = "";
+    let rightDropDownElm = "";
+
+    //aarp-c-header__links-button
+    for (const prop in stateObj) {
+        for (const obj in stateObj[prop]) {
+            if (prop === 'buttonHeader') {
+
+                buttonHeaderElm += `<li role="presentation">
+                    <div>
+                        <a class="aarp-c-common-button aarp-c-link" href="${stateObj[prop][obj]}" target="_self">${obj}</a>
+                    </div>
+                </li>`
+            }
+            else if (prop === 'flyOutNav') {
+
+            }
+            else if (prop === 'Link') {
+                linkElm += `<li role="presentation">
+                <a href="${stateObj[prop][obj]}" >${obj}</a>
+                 </li>`
+
+            }
+            else if (prop === 'leftRightLink' && stateObj[prop]["Hi, %{firstName}%"] !== "") {
+                leftLinkElm += `<li>
+                <b>
+                    <a href="${stateObj[prop][obj]}">${obj}</a>
+                </b>
+            </li>`
+                rightLinkElm += `<li>
+                <a href="${stateObj[prop][obj]}"
+                    data-overlay-msg="AARP.Everywhere.LeavingModal.drawOverlay(this,'',/content/experience-fragments/fragments/hpHeader/hp-header-anonymous.html,'','You are now leaving AARP.org and going to a website that is not operated by AARP. A different privacy policy and terms of service will apply.');return false;">${obj}</a>
+            </li>`
+            }
+            else if (prop === 'leftRightLink' && stateObj[prop]["Hi, %{firstName}%"] === "") {
+                leftLinkElm += `<p>Hi, ${AARP.userState.userFirstname}</p>`
+                rightLinkElm += `<p>Hi, ${AARP.userState.userFirstname}</p>`
+            }
+            else if (prop === 'rightLeftDropDown') {
+                leftDropDownElm += `<li class="aarp-c-linked-dropdown__list-item">
+                <a href="${stateObj[prop][obj]}" class="aarp-c-linked-dropdown__link-item" target="_blank"
+                    data-displayoverlay="displayOverlay" data-default-element-msg="">${obj}</a>
+            </li>`
+                rightDropDownElm += `<li class="aarp-c-linked-dropdown__list-item">
+                <a href="${stateObj[prop][obj]}" class="aarp-c-linked-dropdown__link-item" target="_blank"
+                    data-displayoverlay="displayOverlay" data-default-element-msg="">${obj}</a>
+            </li>`
+            }
+
+
+        }
+
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+        let buttonHeaderParent = document.querySelector(".aarp-c-header__links-button");
+        let LinkParent = document.querySelector(".linkElm");
+        let leftLinkParent = document.querySelector(".leftLinkElm");
+        let rightLinkParent = document.querySelector(".rightLinkElm");
+        let leftDropDownParent = document.querySelector(".leftDropDownElm");
+        let rightDropDownParent = document.querySelector(".rightDropDownElm");
+
+        // Adding the created html to Loaded DOM
+        buttonHeaderParent.innerHTML = buttonHeaderElm;
+        LinkParent.innerHTML = linkElm;
+        leftLinkParent.innerHTML = leftLinkElm;
+        rightLinkParent.innerHTML = rightLinkElm;
+        leftDropDownParent.innerHTML = leftDropDownElm;
+        rightDropDownParent.innerHTML = rightDropDownElm;
+
+    });
+}
+//Initializing community page
+findUserState();
+setUserState(AARP.allUserStates, AARP.userState.userType);
